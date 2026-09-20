@@ -1,0 +1,34 @@
+# Raitha Mithra (ರೈತ ಮಿತ್ರ) — Complete AI System Reference
+
+## Overview
+Raitha Mithra (ರೈತ ಮಿತ್ರ) is an Indian agricultural platform built to empower farmers with real-time mandi prices, government subsidies, crop cultivation manuals, AI disease diagnosis, and voice-assisted AI guidance in Kannada and English.
+
+## Primary Crop Capabilities & Mandi Coverage
+- **Supported Crops**: Finger Millet (Ragi), Paddy (Rice), Maize (Corn), Sugarcane, Arecanut (Betel Nut), Coffee (Arabica/Robusta), Coconut, Onion, Tomato, Red Chili (Byadgi), Groundnut, Bengal Gram.
+- **Mandi Sources**: Karnataka KRAMA / AgMarknet, Coffee Board of India, Coconut Development Board.
+- **Price Trend Logic**: Daily price changes computed by comparing current day mandi rate against previous cached rate for same crop and market.
+
+## Government Subsidies & Schemes Database
+1. **PM-KISAN**: ₹6,000 per year direct income transfer in 3 installments to landholding farmers.
+2. **PMFBY**: Low-premium crop insurance against natural calamities (1.5% Rabi, 2% Kharif).
+3. **Kisan Credit Card (KCC)**: Institutional agricultural credit up to ₹3 Lakhs at 4% effective interest rate.
+4. **Soil Health Card**: Periodic soil testing and NPK dosage recommendations.
+5. **PM Krishi Sinchayee Yojana (PMKSY)**: 45%-55% subsidy for drip and sprinkler irrigation systems.
+6. **PM-KUSUM**: Up to 60% total subsidy for standalone solar agriculture pumps.
+7. **Raitha Vidya Nidhi (Karnataka)**: Scholarship grant (₹2,500 - ₹11,000) for children of farmers in higher education.
+8. **Krishi Bhagya (Karnataka)**: 80%-90% subsidy for rain-water harvesting Krishi Honda ponds.
+9. **State Schemes**: Covers Maharashtra, Punjab, Uttar Pradesh, Tamil Nadu, Andhra Pradesh, Madhya Pradesh, Gujarat, Rajasthan, and West Bengal.
+
+## API Endpoint Reference
+
+### 1. `POST /api/recommend-crop`
+- **Payload**: `{ "N": 40, "P": 30, "K": 30, "ph": 6.5, "temperature": 26, "humidity": 70, "rainfall": 650, "lang": "kn" }`
+- **Output**: Top 3 recommended crops with confidence score and Gemini plain-language explanation.
+
+### 2. `POST /api/diagnose-crop`
+- **Payload**: `{ "image_data": "<base64_jpeg>", "crop_hint": "Ragi" }`
+- **Output**: Structured diagnosis with crop name, detected issue, confidence %, diagnosis text (EN + KN), and organic/chemical remedies (EN + KN).
+
+### 3. `POST /api/assistant`
+- **Payload**: `{ "query": "How to treat leaf blast in Ragi?", "language": "kn", "history": [...] }`
+- **Output**: Open-ended grounded Gemini response with multi-turn conversation memory.

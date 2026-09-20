@@ -1,0 +1,46 @@
+# =======================================================
+# RAITHA MITHRA (ರೈತ ಮಿತ್ರ) — AI-FRIENDLY ROBOTS.TXT
+# Explicitly allowing all AI bots, web crawlers, and LLM agents
+# =======================================================
+
+User-agent: *
+Allow: /
+
+# Explicit permission for major AI search & web crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Omegabot
+Allow: /
+
+Sitemap: https://raitha-mithra.vercel.app/sitemap.xml

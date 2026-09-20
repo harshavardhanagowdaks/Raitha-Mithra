@@ -1,0 +1,24 @@
+# Raitha Mithra (ರೈತ ಮಿತ್ರ)
+
+> Raitha Mithra is a full-stack, installable, bilingual (Kannada + English) agricultural platform for Indian farmers, especially in Karnataka. It provides live APMC mandi prices, nationwide government schemes, AI crop disease scanning, ML crop recommendation, and an open-ended Gemini AI assistant.
+
+## Key System Modules & APIs
+
+- [Live APMC Market Prices](https://raitha-mithra.vercel.app/market): Daily price feeds across Karnataka APMCs, Coffee Board of India, and Coconut Development Board with trend indicators (↑ Up, ↓ Down, → Stable) and crop photo thumbnails.
+- [Nationwide Government Schemes](https://raitha-mithra.vercel.app/schemes): Comprehensive directory of Central Government schemes (PM-KISAN, PMFBY, Soil Health Card, KCC, PMKSY, e-NAM, PM-KUSUM) and State schemes (Karnataka, Maharashtra, Punjab, UP, TN, AP, MP, GJ, RJ, WB).
+- [5-Stage AI Disease Scanner](https://raitha-mithra.vercel.app/disease-scan): Leaf photo diagnosis using YOLOv8 leaf detection, EfficientNet disease classifier, IP102 pest classifier, nutrient deficiency detection, and Gemini 1.5 Flash Vision.
+- [AI Crop Recommender](https://raitha-mithra.vercel.app/crop-guide): Machine learning crop recommendation model evaluating soil N, P, K, pH, temperature, humidity, and rainfall to recommend optimal crops with Gemini explanations.
+- [Open-Ended Krishi AI Assistant](https://raitha-mithra.vercel.app/assistant): Grounded RAG-lite chatbot powered by Gemini 1.5 Flash supporting voice and text in Kannada (`kn-IN`) and English (`en-IN`).
+- [Farm Profit & Expense Calculator](https://raitha-mithra.vercel.app/calculator): Calculates seed, fertilizer, labor, irrigation costs vs expected yield and auto-filled market prices per acre.
+
+## Technical Architecture
+
+- **Frontend**: React, Vite, Tailwind CSS, PWA Service Worker (offline app shell).
+- **Backend API**: Vercel Serverless Functions (`/api/cron/scrape-prices`, `/api/recommend-crop`, `/api/diagnose-crop`, `/api/assistant`).
+- **Database & Auth**: Supabase Postgres with RLS, Google OAuth, and Storage (`crop_photos`, `crop_photos_reference`).
+- **AI Models**: Google Gemini 1.5 Flash API + Hugging Face Spaces microservice.
+- **Weather**: Open-Meteo API (free district-based forecasts).
+
+## Full Documentation
+
+For full details, visit [llms-full.txt](https://raitha-mithra.vercel.app/llms-full.txt).
